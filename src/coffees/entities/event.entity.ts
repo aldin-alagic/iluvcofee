@@ -3,10 +3,10 @@ import { Document, SchemaTypes } from 'mongoose';
 
 @Schema()
 export class Event extends Document {
-  @Prop()
+  @Prop({ index: true })
   type: string;
 
-  @Prop()
+  @Prop({ index: true })
   name: string;
 
   @Prop({ type: SchemaTypes.Mixed })
@@ -14,3 +14,4 @@ export class Event extends Document {
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
+EventSchema.index({ name: 1, type: -1 });
