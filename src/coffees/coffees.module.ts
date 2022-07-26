@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';
@@ -17,6 +18,7 @@ import { EventSchema } from './entities/event.entity';
         schema: EventSchema,
       },
     ]),
+    ConfigModule,
   ],
   controllers: [CoffeesController],
   providers: [CoffeesService],
