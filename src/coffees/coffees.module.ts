@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';
+import coffeesConfig from './config/coffees.config';
 import { Coffee, CoffeeSchema } from './entities/coffee.entity';
 import { EventSchema } from './entities/event.entity';
 
@@ -18,7 +19,7 @@ import { EventSchema } from './entities/event.entity';
         schema: EventSchema,
       },
     ]),
-    ConfigModule,
+    ConfigModule.forFeature(coffeesConfig),
   ],
   controllers: [CoffeesController],
   providers: [CoffeesService],
